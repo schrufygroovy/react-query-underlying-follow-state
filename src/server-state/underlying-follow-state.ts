@@ -29,8 +29,8 @@ export const useUnderlyingFollowStateMutation = (isin: string) => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (follow: boolean) => (follow ? followUnderlying(isin) : unfollowUnderlying(isin)),
-    onSuccess: (_, follow) => {
-      queryClient.setQueryData(['is-underlying-followed', isin], () => follow);
+    onSuccess: () => {
+      queryClient.invalidateQueries({queryKey: ['is-underlying-followed', isin]});
     },
   });
 };
