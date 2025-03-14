@@ -1,0 +1,10 @@
+node_modules/
+ios/
+android/
+maestro/**/*.yaml
+patches/
+scripts/
+coverage/
+vendor/
+config/
+.yarn/
